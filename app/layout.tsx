@@ -18,9 +18,9 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Suncity Architects",
-  description: "Minimalist architectural design studio",
-    generator: 'v0.app'
+  title: "Tecknion Architects",
+  description: "Innovative architectural design studio creating exceptional spaces",
+  generator: 'v0.app'
 }
 
 export default function RootLayout({

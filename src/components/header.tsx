@@ -30,7 +30,7 @@ export default function Header() {
           {/* Logo */}
           <motion.div whileHover={{ opacity: 0.7 }} transition={{ duration: 0.2 }}>
             <Link href="/" className="text-sm font-light tracking-[0.2em] font-display">
-              SUNCITY
+              TECKNION ARCHITECTS
             </Link>
           </motion.div>
 

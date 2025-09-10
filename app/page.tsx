@@ -11,38 +11,33 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 const slides = [
   {
     id: 1,
-    image:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    title: "MINIMAL ARCHITECTURE",
-    subtitle: "Form follows function",
+    image: "/images/Apartments/Commercial view.jpg",
+    title: "APARTMENT LIVING",
+    subtitle: "Modern residential complexes",
   },
   {
     id: 2,
-    image:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    title: "SUSTAINABLE DESIGN",
-    subtitle: "Building for tomorrow",
+    image: "/images/Residence/CAM_01_DAY.jpg",
+    title: "LUXURY RESIDENCES",
+    subtitle: "Elegant architectural design",
   },
   {
     id: 3,
-    image:
-      "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    title: "URBAN SPACES",
-    subtitle: "Redefining city living",
+    image: "/images/Residence/FRONT_NIGHT.jpg",
+    title: "EVENING ELEGANCE",
+    subtitle: "Sophisticated nighttime aesthetics",
   },
   {
     id: 4,
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    title: "RESIDENTIAL LUXURY",
-    subtitle: "Elevated living spaces",
+    image: "/images/Offices IT/view 1.jpg",
+    title: "COMMERCIAL SPACES",
+    subtitle: "Modern office environments",
   },
   {
     id: 5,
-    image:
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    title: "CONTEMPORARY DESIGN",
-    subtitle: "Timeless elegance",
+    image: "/images/Retail/CSM NZMBD - ELEVATION 01 (2).jpg",
+    title: "RETAIL ARCHITECTURE",
+    subtitle: "Contemporary commercial design",
   },
 ]
 
