@@ -162,50 +162,6 @@ export default function HomePage() {
         </AnimatePresence>
       </div>
 
-      {/* Content Overlay */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-center text-white px-4 sm:px-6 lg:px-8">
-          <motion.div
-            key={`content-${currentSlide}`}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          >
-            <motion.h1
-              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-[0.05em] mb-4 sm:mb-6 font-display leading-tight"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-            >
-              {slides[currentSlide].title}
-            </motion.h1>
-            <motion.p
-              className="text-xs sm:text-sm md:text-base font-light tracking-[0.15em] sm:tracking-[0.2em] mb-8 sm:mb-12 lg:mb-16 opacity-90"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-              {slides[currentSlide].subtitle}
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-            >
-              <Link href="/projects">
-                <motion.button
-                  className="border border-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 text-xs font-light tracking-[0.15em] sm:tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all duration-500 backdrop-blur-sm bg-white/5"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  EXPLORE PROJECTS
-                </motion.button>
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </div>
 
       {/* Navigation Arrows - Hidden on mobile */}
       {!isMobile && (
@@ -228,6 +184,28 @@ export default function HomePage() {
           </motion.button>
         </>
       )}
+
+      {/* Project Information Overlay */}
+      <motion.div
+        className="absolute bottom-8 sm:bottom-12 left-4 sm:left-8 text-white"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+      >
+        <motion.div
+          key={`project-info-${currentSlide}`}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h3 className="text-xl sm:text-2xl font-normal tracking-[0.05em] font-display mb-1">
+            {slides[currentSlide].projectName}
+          </h3>
+          <p className="text-sm sm:text-base font-light tracking-[0.05em] opacity-90">
+            {slides[currentSlide].location}
+          </p>
+        </motion.div>
+      </motion.div>
 
       {/* Slide Indicators */}
       <div className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex space-x-3 sm:space-x-4">

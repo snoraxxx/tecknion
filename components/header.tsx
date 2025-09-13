@@ -61,8 +61,8 @@ export default function Header() {
             </Link>
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-12">
+          {/* Navigation - Vertically stacked on right for all screen sizes */}
+          <nav className="flex flex-col items-end space-y-2 text-right">
             {/* Projects Dropdown */}
             <div className="relative">
               <motion.div 
@@ -91,7 +91,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-2 bg-white shadow-lg border border-gray-100 rounded-sm py-2 min-w-[140px] z-50"
+                    className="absolute top-full right-0 mt-2 bg-white shadow-lg border border-gray-100 rounded-sm py-2 min-w-[140px] z-50"
                     onMouseEnter={() => setIsProjectsHovered(true)}
                     onMouseLeave={() => setIsProjectsHovered(false)}
                   >
@@ -112,6 +112,7 @@ export default function Header() {
               </AnimatePresence>
             </div>
 
+
             {/* Contact */}
             <motion.div whileHover={{ opacity: 0.7 }} transition={{ duration: 0.2 }}>
               <Link href="/contact" className={linkClasses("/contact")}>
@@ -120,60 +121,7 @@ export default function Header() {
             </motion.div>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className={`md:hidden text-xs font-light tracking-[0.1em] uppercase ${
-              pathname === "/" ? "text-white" : "text-black"
-            }`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? "CLOSE" : "MENU"}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden border-t border-gray-200 overflow-hidden bg-white"
-            >
-              <nav className="py-8 space-y-6">
-                <div className="space-y-4">
-                  <div className="text-xs font-light tracking-[0.1em] uppercase text-gray-400">
-                    PROJECTS
-                  </div>
-                  <div className="pl-4 space-y-3">
-                    <Link
-                      href="/projects?category=interior"
-                      className="block text-xs font-light tracking-[0.1em] uppercase"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      INTERIOR
-                    </Link>
-                    <Link
-                      href="/projects?category=architecture"
-                      className="block text-xs font-light tracking-[0.1em] uppercase"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      ARCHITECTURE
-                    </Link>
-                  </div>
-                </div>
-                <Link
-                  href="/contact"
-                  className="block text-xs font-light tracking-[0.1em] uppercase"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  CONTACT
-                </Link>
-              </nav>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          </div>
       </div>
     </motion.header>
   )

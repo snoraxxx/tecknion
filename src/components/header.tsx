@@ -119,60 +119,70 @@ export default function Header() {
             </motion.div>
           </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            className={`md:hidden text-xs font-light tracking-[0.1em] uppercase ${
-              pathname === "/" ? "text-white" : "text-black"
-            }`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? "CLOSE" : "MENU"}
-          </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden border-t border-gray-200 overflow-hidden bg-white"
-            >
-              <nav className="py-8 space-y-6">
-                <div className="space-y-4">
-                  <div className="text-xs font-light tracking-[0.1em] uppercase text-gray-400">
-                    PROJECTS
-                  </div>
-                  <div className="pl-4 space-y-3">
+        {/* Mobile Navigation - Always Visible Below Logo */}
+        <div className="md:hidden">
+          <nav className="flex justify-center space-x-8 py-4">
+            <div className="relative">
+              <motion.div 
+                className="flex items-center space-x-1 cursor-pointer"
+                onMouseEnter={() => setIsProjectsHovered(true)}
+                onMouseLeave={() => setIsProjectsHovered(false)}
+                whileHover={{ opacity: 0.7 }} 
+                transition={{ duration: 0.2 }}
+              >
+                <Link href="/projects" className={`text-xs font-light tracking-[0.1em] uppercase ${
+                  pathname === "/" ? "text-white" : "text-gray-700"
+                }`}>
+                  PROJECTS
+                </Link>
+                <motion.div
+                  animate={{ rotate: isProjectsHovered ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ChevronDown size={10} className={pathname === "/" ? "text-white" : "text-gray-700"} />
+                </motion.div>
+              </motion.div>
+              
+              {/* Mobile Dropdown Menu */}
+              <AnimatePresence>
+                {isProjectsHovered && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 mt-2 bg-white shadow-lg border border-gray-100 rounded-sm py-2 min-w-[120px] z-50"
+                    onMouseEnter={() => setIsProjectsHovered(true)}
+                    onMouseLeave={() => setIsProjectsHovered(false)}
+                  >
                     <Link
                       href="/projects?category=interior"
-                      className="block text-xs font-light tracking-[0.1em] uppercase"
-                      onClick={() => setIsMenuOpen(false)}
+                      className="block px-3 py-2 text-xs font-light tracking-[0.1em] uppercase text-gray-700 hover:text-black hover:bg-gray-50 transition-colors"
                     >
                       INTERIOR
                     </Link>
                     <Link
                       href="/projects?category=architecture"
-                      className="block text-xs font-light tracking-[0.1em] uppercase"
-                      onClick={() => setIsMenuOpen(false)}
+                      className="block px-3 py-2 text-xs font-light tracking-[0.1em] uppercase text-gray-700 hover:text-black hover:bg-gray-50 transition-colors"
                     >
                       ARCHITECTURE
                     </Link>
-                  </div>
-                </div>
-                <Link
-                  href="/contact"
-                  className="block text-xs font-light tracking-[0.1em] uppercase"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  CONTACT
-                </Link>
-              </nav>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <motion.div whileHover={{ opacity: 0.7 }} transition={{ duration: 0.2 }}>
+              <Link href="/contact" className={`text-xs font-light tracking-[0.1em] uppercase ${
+                pathname === "/" ? "text-white" : "text-gray-700"
+              }`}>
+                CONTACT
+              </Link>
             </motion.div>
-          )}
-        </AnimatePresence>
+          </nav>
+        </div>
       </div>
     </motion.header>
   )
