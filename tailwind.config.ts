@@ -10,10 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        montserrat: ["var(--font-montserrat)"],
-        inter: ["var(--font-inter)"],
-        sans: ["var(--font-inter)"],
-        display: ["var(--font-space-grotesk)"],
+        limelight: ["var(--font-limelight)", "sans-serif"],
+        sans: ["var(--font-limelight)", "sans-serif"],
+        display: ["var(--font-limelight)", "sans-serif"],
       },
       colors: {
         background: "hsl(var(--background))",

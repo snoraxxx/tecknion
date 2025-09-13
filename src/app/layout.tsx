@@ -1,25 +1,19 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Space_Grotesk, Inter } from "next/font/google"
+import { Limelight } from "next/font/google"
 import "./globals.css"
 import Header from "@/components/header"
 
-const spaceGrotesk = Space_Grotesk({
+const limelight = Limelight({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-limelight",
   display: "swap",
-})
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  weight: ["300", "400", "500", "600"],
+  weight: ["400"],
 })
 
 export const metadata: Metadata = {
-  title: "Suncity Architects",
-  description: "Minimalist architectural design studio",
+  title: "Tecknion Architects",
+  description: "Innovative architectural design studio creating exceptional spaces",
 }
 
 export default function RootLayout({
@@ -29,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${inter.variable} font-sans antialiased`}>
+      <body className={`${limelight.variable} font-limelight antialiased`}>
         <Header />
         <main>{children}</main>
       </body>

@@ -11,33 +11,43 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 const slides = [
   {
     id: 1,
-    image: "/images/Apartments/Commercial view.jpg",
+    image: "https://imagesv2-tecknion.similix.in/architects/Apartments/Commercial view.jpg",
     title: "APARTMENT LIVING",
     subtitle: "Modern residential complexes",
+    projectName: "Kondapur Apartments",
+    location: "Hyderabad, India",
   },
   {
     id: 2,
-    image: "/images/Residence/CAM_01_DAY.jpg",
+    image: "https://imagesv2-tecknion.similix.in/architects/Residence/CAM_01_DAY.jpg",
     title: "LUXURY RESIDENCES",
     subtitle: "Elegant architectural design",
+    projectName: "Premium Residence",
+    location: "Hyderabad, India",
   },
   {
     id: 3,
-    image: "/images/Residence/FRONT_NIGHT.jpg",
+    image: "https://imagesv2-tecknion.similix.in/architects/Residence/FRONT_NIGHT.jpg",
     title: "EVENING ELEGANCE",
     subtitle: "Sophisticated nighttime aesthetics",
+    projectName: "Night Villa",
+    location: "Uppal, India",
   },
   {
     id: 4,
-    image: "/images/Offices IT/view 1.jpg",
+    image: "https://imagesv2-tecknion.similix.in/architects/8.Mall &Multiplex/1.jpg",
     title: "COMMERCIAL SPACES",
-    subtitle: "Modern office environments",
+    subtitle: "Modern commercial environments",
+    projectName: "Mall & Multiplex",
+    location: "Hyderabad, India",
   },
   {
     id: 5,
-    image: "/images/Retail/CSM NZMBD - ELEVATION 01 (2).jpg",
-    title: "RETAIL ARCHITECTURE",
-    subtitle: "Contemporary commercial design",
+    image: "https://imagesv2-tecknion.similix.in/architects/LACASA/club 03 night.jpg",
+    title: "LACASA CLUBHOUSE",
+    subtitle: "Premium community amenities",
+    projectName: "LACASA Gated Community",
+    location: "Hyderabad, India",
   },
 ]
 
@@ -117,27 +127,40 @@ export default function HomePage() {
       onTouchEnd={handleTouchEnd}
     >
       {/* Slideshow */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.95 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="absolute inset-0"
-        >
-          <Image
-            src={slides[currentSlide].image || "/placeholder.svg"}
-            alt={slides[currentSlide].title}
-            fill
-            className="object-cover"
-            priority
-            quality={95}
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </motion.div>
-      </AnimatePresence>
+      <div className="absolute inset-0 bg-black">
+        <AnimatePresence>
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <motion.div
+              className="absolute inset-0"
+              initial={{ scale: 1 }}
+              animate={{ scale: 1.15 }}
+              transition={{ 
+                duration: 8, 
+                ease: "easeOut",
+                repeat: 0
+              }}
+            >
+              <Image
+                src={slides[currentSlide].image || "/placeholder.svg"}
+                alt={slides[currentSlide].title}
+                fill
+                className="object-cover"
+                priority
+                quality={95}
+                sizes="100vw"
+              />
+            </motion.div>
+            <div className="absolute inset-0 bg-black/30" />
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       {/* Content Overlay */}
       <div className="absolute inset-0 flex items-center justify-center">

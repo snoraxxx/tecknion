@@ -20,6 +20,12 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'imagesv2-tecknion.similix.in',
+        port: '',
+        pathname: '/**',
+      },
     ],
     unoptimized: false,
   },

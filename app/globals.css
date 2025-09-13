@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-family-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-family-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-family-sans: var(--font-unna), ui-sans-serif, system-ui, sans-serif;
+  --font-family-display: var(--font-unna), ui-sans-serif, system-ui, sans-serif;
 
   --color-white: #ffffff;
   --color-black: #000000;
